@@ -33,3 +33,18 @@ curatedtrec_test:
   _target_: dpr.data.retriever_data.CsvQASrc
   file: data.retriever.qas.curatedtrec-test
 
+defeasible_snli_strengthener_train:
+  _target_: dpr.data.biencoder_data.JsonQADataset
+  file: "/home/intern2/seungone/ConEV/data/dpr_style/defeasible_strengthener_snli_train.json"
+
+defeasible_snli_strengthener_dev:
+  _target_: dpr.data.biencoder_data.JsonQADataset
+  file: "/home/intern2/seungone/ConEV/data/dpr_style/defeasible_strengthener_snli_val.json"
+
+defeasible_snli_weakener_train:
+  _target_: dpr.data.biencoder_data.JsonQADataset
+  file: "/home/intern2/seungone/ConEV/data/dpr_style/defeasible_weakener_snli_train.json"
+
+defeasible_snli_weakener_dev:
+  _target_: dpr.data.biencoder_data.JsonQADataset
+  file: "/home/intern2/seungone/ConEV/data/dpr_style/defeasible_weakener_snli_val.json"

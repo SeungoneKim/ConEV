@@ -762,7 +762,9 @@ def main(cfg: DictConfig):
     if cfg.local_rank in [-1, 0]:
         logger.info("CFG (after gpu  configuration):")
         logger.info("%s", OmegaConf.to_yaml(cfg))
-
+    print('****************')
+    print(cfg)
+    print('****************')
     trainer = BiEncoderTrainer(cfg)
 
     if cfg.train_datasets and len(cfg.train_datasets) > 0:

@@ -18,7 +18,7 @@ setup(
     classifiers=[
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
     ],
     long_description=readme,
@@ -31,7 +31,7 @@ setup(
         "filelock",
         "numpy",
         "regex",
-        "torch>=1.5.0",
+        "torch>=1.8.0",
         "transformers>=4.3",
         "tqdm>=4.27",
         "wget",

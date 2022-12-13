@@ -155,7 +155,16 @@ with open(positive_file,'r') as pf:
 print(len(strengthener_explanations))
 print(len(weakener_explanations))
 
-with open("./dpr_style/defeasible_strengthener_snli.json","w") as f:
-    json.dump(strengthener_explanations,f)
-with open("./dpr_style/defeasible_weakener_snli.json","w") as f:
-    json.dump(weakener_explanations,f)
+train_strengthener_explanations = strengthener_explanations[:6600]
+val_strengthener_explanations = strengthener_explanations[6600:]
+train_weakener_explanations = weakener_explanations[:6600]
+val_weakener_explanations = weakener_explanations[6600:]
+
+with open("./dpr_style/defeasible_strengthener_snli_train.json","w") as f:
+    json.dump(train_strengthener_explanations,f)
+with open("./dpr_style/defeasible_strengthener_snli_val.json","w") as f:
+    json.dump(val_strengthener_explanations,f)
+with open("./dpr_style/defeasible_weakener_snli_train.json","w") as f:
+    json.dump(train_weakener_explanations,f)
+with open("./dpr_style/defeasible_weakener_snli_val.json","w") as f:
+    json.dump(val_weakener_explanations,f)

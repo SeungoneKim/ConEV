@@ -4,7 +4,7 @@
 encoder_model_type: hf_bert
 
 # HuggingFace's config name for model initialization
-pretrained_model_cfg: bert-base-uncased
+pretrained_model_cfg: bert-large-uncased
 
 # Some encoders need to be initialized from a file
 pretrained_file:
@@ -13,7 +13,7 @@ pretrained_file:
 projection_dim: 0
 
 # Max length of the encoder input sequence
-sequence_length: 256
+sequence_length: 64
 
 dropout: 0.1
 
