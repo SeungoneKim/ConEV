@@ -47,12 +47,20 @@ def load_states_from_checkpoint(model_file: str) -> CheckpointState:
 
 
 if __name__ == "__main__":
+    
     naive_score={}
     naive_score['rougeL']=0.0
     naive_score['bertscore']=0.0
     naive_score['sacrebleu']=0.0
     naive_score['meteor']=0.0
     naive_score['cossim']=0.0
+    
+    cot_random_score={}
+    cot_random_score['rougeL']=0.0
+    cot_random_score['bertscore']=0.0
+    cot_random_score['sacrebleu']=0.0
+    cot_random_score['meteor']=0.0
+    cot_random_score['cossim']=0.0
     
     cot_score={}
     cot_score['rougeL']=0.0
@@ -97,6 +105,16 @@ if __name__ == "__main__":
             naive_score['meteor'] += data['strengthener_prediction']['naive'][idx]['meteor']
             naive_score['cossim'] += data['strengthener_prediction']['naive'][idx]['cossim']
             
+            
+            
+            # choose among cot random
+            idx2 = random.choice(range(0,5))
+            cot_random_score['rougeL'] += data['strengthener_prediction']['cot'][idx2]['rougeL']
+            cot_random_score['bertscore'] += data['strengthener_prediction']['cot'][idx2]['bertscore']
+            cot_random_score['sacrebleu'] += data['strengthener_prediction']['cot'][idx2]['sacrebleu']
+            cot_random_score['meteor'] += data['strengthener_prediction']['cot'][idx2]['meteor']
+            cot_random_score['cossim'] += data['strengthener_prediction']['cot'][idx2]['cossim']
+            
             # choose among cot
             max_sim = 0.0
             final_d = {}
@@ -120,9 +138,13 @@ if __name__ == "__main__":
     
         for key in naive_score:
             naive_score[key] /= len(json_object)
+        for key in cot_random_score:
+            cot_random_score[key] /= len(json_object)
         for key in cot_score:
             cot_score[key] /= len(json_object)
         print(naive_score)
+        print()
+        print(cot_random_score)
         print()
         print(cot_score)
                 

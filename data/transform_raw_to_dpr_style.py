@@ -40,7 +40,7 @@ with open(positive_file,'r') as pf:
                 tmp_strengthener['positive_ctxs'].append(
                     {
                         "title":pd['strengthener_prediction']['cot'][0]['pred'],
-                        "text":pd['strengthener_prediction']['cot'][0]['explanation'],
+                        "text":pd['strengthener_prediction']['cot'][0]['explanation'] + " [SEP] "+pd['strengthener_prediction']['cot'][0]['pred'],
                         "score":pd['strengthener_prediction']['cot'][0]['cossim']*1000,
                         "title_score":1,
                         "passage_id":idx
@@ -51,7 +51,7 @@ with open(positive_file,'r') as pf:
                 tmp_strengthener['hard_negative_ctxs'].append(
                     {
                         "title":pd['weakener_prediction']['cot'][0]['pred'],
-                        "text":pd['weakener_prediction']['cot'][0]['explanation'],
+                        "text":pd['weakener_prediction']['cot'][0]['explanation'] + " [SEP] "+pd['weakener_prediction']['cot'][0]['pred'],
                         "score":1000-pd['weakener_prediction']['cot'][0]['cossim']*1000,
                         "title_score":0,
                         "passage_id":len(positive_file)+idx
@@ -68,7 +68,7 @@ with open(positive_file,'r') as pf:
                 tmp_strengthener['hard_negative_ctxs'].append(
                     {
                         "title":tmp_hard_negative_pred,
-                        "text":tmp_hard_negative_explanation,
+                        "text":tmp_hard_negative_explanation + " [SEP] "+tmp_hard_negative_pred,
                         "score":tmp_score*1000,
                         "title_score":0,
                         "passage_id":len(positive_file)*2+idx
@@ -85,7 +85,7 @@ with open(positive_file,'r') as pf:
                 tmp_strengthener['hard_negative_ctxs'].append(
                     {
                         "title":tmp_hard_negative_pred,
-                        "text":tmp_hard_negative_explanation,
+                        "text":tmp_hard_negative_explanation + " [SEP] "+tmp_hard_negative_pred,
                         "score":1000-tmp_score*1000,
                         "title_score":0,
                         "passage_id":len(positive_file)*3+idx
@@ -97,7 +97,7 @@ with open(positive_file,'r') as pf:
                 tmp_weakener['positive_ctxs'].append(
                     {
                         "title":pd['weakener_prediction']['cot'][0]['pred'],
-                        "text":pd['weakener_prediction']['cot'][0]['explanation'],
+                        "text":pd['weakener_prediction']['cot'][0]['explanation'] + " [SEP] "+pd['weakener_prediction']['cot'][0]['pred'],
                         "score":1000-pd['weakener_prediction']['cot'][0]['cossim']*1000,
                         "title_score":1,
                         "passage_id":len(positive_file)+idx
@@ -108,7 +108,7 @@ with open(positive_file,'r') as pf:
                 tmp_weakener['hard_negative_ctxs'].append(
                     {
                         "title":pd['strengthener_prediction']['cot'][0]['pred'],
-                        "text":pd['strengthener_prediction']['cot'][0]['explanation'],
+                        "text":pd['strengthener_prediction']['cot'][0]['explanation'] + " [SEP] "+pd['strengthener_prediction']['cot'][0]['pred'],
                         "score":pd['strengthener_prediction']['cot'][0]['cossim']*1000,
                         "title_score":0,
                         "passage_id":idx
@@ -125,7 +125,7 @@ with open(positive_file,'r') as pf:
                 tmp_weakener['hard_negative_ctxs'].append(
                     {
                         "title":tmp_hard_negative_pred,
-                        "text":tmp_hard_negative_explanation,
+                        "text":tmp_hard_negative_explanation + " [SEP] "+tmp_hard_negative_pred,
                         "score":tmp_score*1000,
                         "title_score":0,
                         "passage_id":len(positive_file)*2+idx
@@ -142,7 +142,7 @@ with open(positive_file,'r') as pf:
                 tmp_weakener['hard_negative_ctxs'].append(
                     {
                         "title":tmp_hard_negative_pred,
-                        "text":tmp_hard_negative_explanation,
+                        "text":tmp_hard_negative_explanation + " [SEP] "+tmp_hard_negative_pred,
                         "score":1000-tmp_score*1000,
                         "title_score":0,
                         "passage_id":len(positive_file)*3+idx

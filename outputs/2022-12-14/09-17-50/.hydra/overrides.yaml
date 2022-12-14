@@ -1,0 +1,5 @@
+- local_rank=6
+- train_datasets=defeasible_snli_strengthener_train
+- dev_datasets=defeasible_snli_strengthener_dev
+- train=biencoder_default
+- output_dir=/home/intern2/seungone/ConEV/checkpoints
